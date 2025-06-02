@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meals/screens/tabs.dart';
-import 'package:meals/widgets/main_drawer.dart';
 
 enum Filter { glutenFree, lactoseFree, vegeterian, vegan }
 
@@ -27,7 +25,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   void initState() {
     super.initState();
-    
+
     _glutenFreeFilterSet = widget.currentFilters[Filter.glutenFree]!;
     _lactoseFreeFilterSet = widget.currentFilters[Filter.lactoseFree]!;
     _vegeterianFilterSet = widget.currentFilters[Filter.vegeterian]!;
