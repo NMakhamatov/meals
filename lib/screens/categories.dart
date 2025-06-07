@@ -39,9 +39,9 @@ class _CategoriesScreenState extends State<CategoriesScreen>
 
   void _selectCategory(BuildContext context, Category category) {
     final filteredMeals =
-    widget.availableMeals
-        .where((meal) => meal.categories.contains(category.id))
-        .toList();
+        widget.availableMeals
+            .where((meal) => meal.categories.contains(category.id))
+            .toList();
 
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -75,11 +75,18 @@ class _CategoriesScreenState extends State<CategoriesScreen>
         padding: EdgeInsets.all(16),
       ),
       builder:
-          (context, child) =>
-          Padding(
-            padding: EdgeInsets.only(
-                top: 100 - _animationController.value * 100),
-            child: child,),
+          (context, child) => SlideTransition(
+              position: Tween(
+                  begin: const Offset(0, 0.3),
+                  end: const Offset(0, 0),
+                ).animate(
+                CurvedAnimation(
+                    parent: _animationController,
+                    curve: Curves.easeInOut,
+                ),
+              ),
+              child: child
+          ),
     );
   }
 }
